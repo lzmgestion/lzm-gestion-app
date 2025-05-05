@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LZM GESTIÓN</title>
+  <link rel="stylesheet" href="src/styles.css" />
+</head>
+<body>
+  <header>
+    <h1>LZM GESTIÓN</h1>
+    <p id="resumen-dia">Cargando resumen...</p>
+  </header>
+
+  <main>
+    <section id="trabajos">
+      <h2>Trabajos del día</h2>
+      <ul id="lista-trabajos"></ul>
+    </section>
+
+    <button id="nuevo-trabajo" class="flotante">+</button>
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const resumen = document.getElementById("resumen-dia");
+      const lista = document.getElementById("lista-trabajos");
+
+      resumen.innerText = "Hoy hay 3 trabajos programados.";
+
+      const trabajos = [
+        { cliente: "Hotel Austral", hora: "10:00", tarea: "Caldera" },
+        { cliente: "Juan Pérez", hora: "12:00", tarea: "Split" },
+        { cliente: "Farmacia Sur", hora: "15:00", tarea: "Freezer" },
+      ];
+
+      trabajos.forEach(t => {
+        const li = document.createElement("li");
+        li.innerText = `${t.hora} - ${t.cliente} (${t.tarea})`;
+        lista.appendChild(li);
+      });
+    });
+  </script>
+</body>
+</html>

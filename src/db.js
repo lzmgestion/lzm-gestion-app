@@ -1,0 +1,1 @@
+// Simulación de base de datos local
